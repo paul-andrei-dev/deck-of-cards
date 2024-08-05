@@ -1,11 +1,15 @@
 import { Card } from "./components/Card.tsx";
-import { Card as CardType } from "./data.ts";
-import { DeckOfCards } from "./card-operations.ts";
-import { useState } from "react";
+import { Card as CardType } from "./data/data.ts";
+import { DeckOfCards } from "./utils/card-operations.ts";
+import { FC, useState } from "react";
 
-const deckOfCards = new DeckOfCards();
+interface IAppProps {
+  deckOfCards?: DeckOfCards;
+}
 
-function App() {
+const defaultDeck = new DeckOfCards();
+
+const App: FC<IAppProps> = ({ deckOfCards = defaultDeck }) => {
   const [cards, setCards] = useState(deckOfCards.listCards());
 
   const shuffleCards = () => {
@@ -26,7 +30,7 @@ function App() {
   return (
     <>
       <div className="p-4 flex gap-2 flex-wrap">
-        {cards.map((card) => (
+        {cards?.map((card) => (
           <Card
             suit={card.suit}
             rank={card.rank}
@@ -41,6 +45,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;

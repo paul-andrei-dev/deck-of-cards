@@ -1,4 +1,4 @@
-import { RANK, SUIT } from "./data.ts";
+import { RANK, SUIT } from "./data/data.ts";
 
 export const SUIT_MAPPER = {
   [SUIT.HEARTS]: "src/assets/heart.svg",

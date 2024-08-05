@@ -1,5 +1,5 @@
-import { Card, CARDS } from "./data.ts";
-import { RANK_ORDER, SUIT_ORDER } from "./const.ts";
+import { Card, CARDS } from "../data/data.ts";
+import { RANK_ORDER, SUIT_ORDER } from "../const.ts";
 
 export class DeckOfCards {
   private cards: Card[];
